@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReservationFormComponent implements OnInit {
 
   reservationForm: FormGroup = new FormGroup({});
+  isEditing: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private reservationService: ReservationService,
@@ -32,6 +33,7 @@ export class ReservationFormComponent implements OnInit {
 
     if (id) {
       let reservation = this.reservationService.findById(id);
+      this.isEditing = true;
 
       if (reservation) {
         this.reservationForm.patchValue(reservation);
