@@ -5,6 +5,8 @@ import { ReservationListComponent } from '../reservation-list/reservation-list.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationService } from './reservation.service';
 import { Router, RouterModule } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
+import { HomeModule } from '../home/home.module';
 
 
 
@@ -17,7 +19,8 @@ import { Router, RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HomeModule
   ],
   providers:[
     ReservationService
