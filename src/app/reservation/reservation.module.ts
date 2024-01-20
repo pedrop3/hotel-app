@@ -4,10 +4,9 @@ import { ReservationFormComponent } from '../reservation-form/reservation-form.c
 import { ReservationListComponent } from '../reservation-list/reservation-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationService } from './reservation.service';
-import { Router, RouterModule } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { RouterModule } from '@angular/router';
 import { HomeModule } from '../home/home.module';
-
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -20,7 +19,8 @@ import { HomeModule } from '../home/home.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule
   ],
   providers:[
     ReservationService

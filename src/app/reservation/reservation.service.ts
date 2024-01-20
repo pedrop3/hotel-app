@@ -1,18 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Reservation } from '../models/reservation';
+import { environment as env } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
 
-  constructor() {
+  private ENDPOINT = env.backend + '/reservations'
+
+  constructor(private http: HttpClient) {
     let savedReservations = localStorage.getItem("reservations");
     this.reservations = savedReservations ? JSON.parse(savedReservations) : [];
   }
 
 
   private reservations: Reservation[] = [];
+
+
+  findAll2(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.ENDPOINT);
+  }
 
   findAll(): Reservation[] {
     return this.reservations;
