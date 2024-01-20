@@ -29,10 +29,10 @@ export class ReservationService {
   }
 
   save(reservation: Reservation): void {
-    reservation.id = Date.now().toString(); //Only mock back-end
     
     let index = this.reservations.findIndex(res => res.id == reservation.id)
     if (index < 0) {
+      reservation.id = Date.now().toString(); //Only mock back-end
       this.reservations.push(reservation);
       localStorage.setItem('reservations', JSON.stringify(this.reservations))
     } else {
