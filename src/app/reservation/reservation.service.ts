@@ -29,6 +29,8 @@ export class ReservationService {
   }
 
   save(reservation: Reservation): void {
+    reservation.id = Date.now().toString(); //Only mock back-end
+    
     let index = this.reservations.findIndex(res => res.id == reservation.id)
     if (index < 0) {
       this.reservations.push(reservation);
